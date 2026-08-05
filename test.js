@@ -30,4 +30,15 @@ else{
 }
 
 //tc4 
+if(fs.existsSync("student.json")){
+    console.log("TC-04 : student.json exists :PASS");
+}
+else{
+    console.log("TC-04 : student.json exists :FAIL");
+    passed=false;
+}
 
+//read json 
+const student = JSON.parse(
+    fs.readFileSync("student.json")
+);
