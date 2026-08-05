@@ -19,3 +19,15 @@ else{
     console.log("TC-02 : style.css exists :FAIL");
     passed=false;
 }
+
+//tc 3
+if (fs.existsSync("script.js")){
+    console.log("TC-03 : script.js exists :PASS");
+}
+else{
+    console.log("TC-03 : script.js exists :FAIL");
+    passed=false;
+}
+
+//tc4 
+
