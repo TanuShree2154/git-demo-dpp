@@ -54,3 +54,6 @@ else{
 
 
 //tc6
+if (!passed) {
+    process.exit(1);
+}
