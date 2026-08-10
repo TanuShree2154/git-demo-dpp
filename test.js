@@ -10,7 +10,7 @@ else{
     console.log("TC-01 : index.html exists :FAIL");
     passed=false;
 }
-
+console.log("\nOverall Result:", passed ? "PASS" : "FAIL");
 //tc 2
 if (fs.existsSync("style.css")){
     console.log("TC-02 : style.css exists :PASS");
