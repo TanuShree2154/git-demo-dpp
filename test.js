@@ -3,7 +3,7 @@ let passed =true ;
 console.log("Registration test\n");
 
 //tc 1
-if (fs.existsSync("index.html")){
+if (fs.existsSync("index1.html")){
     console.log("TC-01 : index.html exists :PASS");
 }
 else{
@@ -42,3 +42,15 @@ else{
 const student = JSON.parse(
     fs.readFileSync("student.json")
 );
+
+//tc-05
+if(student.name.trim()!==""){
+    console.log("TC-05 : Passed: Name is not empty");
+}
+else{
+    console.log("TC-04 : Failed: Name is empty");
+    passed=false;
+}
+
+
+//tc6
