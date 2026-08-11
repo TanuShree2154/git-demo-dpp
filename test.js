@@ -44,16 +44,82 @@ const student = JSON.parse(
 );
 
 //tc-05
-if(student.name.trim()!==""){
-    console.log("TC-05 : Passed: Name is not empty");
+
+// Read JSON file
+let student;
+
+try {
+    student = JSON.parse(
+        fs.readFileSync("student.json", "utf8")
+    );
+
+    console.log("Student data loaded successfully");
 }
-else{
-    console.log("TC-04 : Failed: Name is empty");
-    passed=false;
+catch (error) {
+    console.log("Error reading student.json");
+    passed = false;
 }
 
 
-//tc6
-if (!passed) {
+// TC-05
+if (student) {
+
+    if (student.name && student.name.trim() !== "") {
+        console.log("TC-05 : Name Validation PASS");
+    }
+    else {
+        console.log("TC-05 : Name Validation FAIL");
+        passed = false;
+    }
+
+
+    // TC-06
+    if (student.email && student.email.includes("@")) {
+        console.log("TC-06 : Email Validation PASS");
+    }
+    else {
+        console.log("TC-06 : Email Validation FAIL");
+        passed = false;
+    }
+
+
+    // TC-07
+    if (student.phone && student.phone.toString().length === 10) {
+        console.log("TC-07 : Phone Validation PASS");
+    }
+    else {
+        console.log("TC-07 : Phone Validation FAIL");
+        passed = false;
+    }
+
+
+    // TC-08
+    if (student.branch && student.branch.trim() !== "") {
+        console.log("TC-08 : Branch Validation PASS");
+    }
+    else {
+        console.log("TC-08 : Branch Validation FAIL");
+        passed = false;
+    }
+
+
+    // TC-09
+    if (student.rollno && student.rollno.trim() !== "") {
+        console.log("TC-09 : Roll Number Validation PASS");
+    }
+    else {
+        console.log("TC-09 : Roll Number Validation FAIL");
+        passed = false;
+    }
+}
+
+
+// TC-10
+if (passed) {
+    console.log("TC-10 : Registration SUCCESS");
+    process.exit(0);
+}
+else {
+    console.log("TC-10 : Registration FAILED");
     process.exit(1);
 }
