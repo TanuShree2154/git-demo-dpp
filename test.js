@@ -39,26 +39,33 @@ else{
 }
 
 
-
-// Read JSON file
+// Read JSON
 let student;
 
 try {
+
     student = JSON.parse(
         fs.readFileSync("student.json", "utf8")
     );
 
+    // Get first student from array
+    student = student[0];
+
     console.log("Student data loaded successfully");
+
 }
 catch (error) {
+
     console.log("Error reading student.json");
     passed = false;
+
 }
 
 
-// TC-05
+// TC-05 to TC-09
 if (student) {
 
+    // TC-05
     if (student.name && student.name.trim() !== "") {
         console.log("TC-05 : Name Validation PASS");
     }
@@ -79,12 +86,17 @@ if (student) {
 
 
     // TC-07
-    if (student.phone && student.phone.toString().length === 10) {
+    if (student.phone &&
+        student.phone.toString().length === 10) {
+
         console.log("TC-07 : Phone Validation PASS");
+
     }
     else {
+
         console.log("TC-07 : Phone Validation FAIL");
         passed = false;
+
     }
 
 
@@ -111,10 +123,14 @@ if (student) {
 
 // TC-10
 if (passed) {
+
     console.log("TC-10 : Registration SUCCESS");
     process.exit(0);
+
 }
 else {
+
     console.log("TC-10 : Registration FAILED");
     process.exit(1);
+
 }
