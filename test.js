@@ -38,12 +38,7 @@ else{
     passed=false;
 }
 
-//read json 
-const student = JSON.parse(
-    fs.readFileSync("student.json")
-);
 
-//tc-05
 
 // Read JSON file
 let student;
